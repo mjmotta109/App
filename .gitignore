@@ -1,0 +1,7 @@
+# Nunca subir la ROM ni assets con copyright
+*.gba
+*.zip
+*.sav
+*.bin
+__pycache__/
+*.pyc
