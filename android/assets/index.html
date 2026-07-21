@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>FFTA</title>
+<style>
+  html, body { margin:0; padding:0; background:#000; height:100%; overflow:hidden; }
+  #game { width:100%; height:100%; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<script>
+  EJS_player = "#game";
+  EJS_core = "mgba";
+  EJS_gameName = "Final Fantasy Tactics Advance";
+  EJS_gameUrl = "ffta.gba";
+  EJS_pathtodata = "data/";
+  EJS_language = "es-ES";
+  EJS_startOnLoaded = true;
+  EJS_backgroundColor = "#000000";
+  EJS_Buttons = { quickSave: true, quickLoad: true, screenshot: false };
+</script>
+<script src="data/loader.js"></script>
+</body>
+</html>
