@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>FFTA</title>
+<style>
+  html, body { margin:0; padding:0; background:#000; height:100%; overflow:hidden; }
+  #game { width:100%; height:100%; }
+  #turbo {
+    position:fixed; top:8px; right:8px; z-index:9999;
+    width:64px; height:40px; border-radius:20px; border:1px solid #666;
+    background:rgba(0,0,0,.45); color:#bbb; font:bold 15px sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    -webkit-user-select:none; user-select:none; touch-action:manipulation;
+  }
+  #turbo.on { background:rgba(255,170,0,.85); color:#000; border-color:#ffaa00; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<div id="turbo">&#9193;x2</div>
+<script>
+  EJS_player = "#game";
+  EJS_core = "mgba";
+  EJS_gameName = "Final Fantasy Tactics Advance";
+  EJS_gameUrl = "ffta.gba";
+  EJS_pathtodata = "data/";
+  EJS_language = "es-ES";
+  EJS_startOnLoaded = true;
+  EJS_backgroundColor = "#000000";
+  // Guardado en cualquier momento: botones de estado visibles en la barra
+  EJS_Buttons = { quickSave: true, quickLoad: true, saveState: true, loadState: true, screenshot: false };
+  // Estados al almacenamiento del navegador (persisten en la app) y turbo a 2x
+  EJS_defaultOptions = { "save-state-location": "browser", "ff-ratio": "2.0" };
+
+  // Botón turbo: alterna aceleración x2 con un toque
+  (function () {
+    var btn = document.getElementById("turbo");
+    function toggle(ev) {
+      ev.preventDefault();
+      var e = window.EJS_emulator;
+      if (!e || !e.gameManager) return;
+      if (e.isFastForward) {
+        e.isFastForward = false;
+        e.gameManager.toggleFastForward(0);
+        btn.classList.remove("on");
+      } else {
+        e.gameManager.setFastForwardRatio(2.0);
+        e.isFastForward = true;
+        e.gameManager.toggleFastForward(1);
+        btn.classList.add("on");
+      }
+    }
+    btn.addEventListener("touchstart", toggle, { passive: false });
+    btn.addEventListener("mousedown", toggle);
+  })();
+</script>
+<script src="data/loader.js"></script>
+</body>
+</html>

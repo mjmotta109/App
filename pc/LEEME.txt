@@ -1,0 +1,23 @@
+FFTA para PC — uso personal
+===========================
+
+COMO JUGAR (Windows):
+  1. Doble clic en JUGAR.bat
+  2. Se abre una ventana dedicada con el juego (via Edge/Chrome en modo app).
+  3. Para salir: cierra el juego y la ventana minimizada "FFTA (servidor)".
+
+Linux:  ./jugar.sh        macOS:  ./jugar.sh  (requiere python3)
+
+CONTROLES (teclado):
+  Flechas = D-pad      Z = A      X = B
+  Enter = Start        V = Select     Q = L      E = R
+  (mando USB/Bluetooth también funciona; el navegador lo detecta)
+
+EXTRAS:
+  - Boton "x2" (arriba a la derecha): turbo 2x on/off.
+  - Barra inferior del emulador: guardar/cargar estado en cualquier momento.
+    Los estados se guardan en el navegador (persisten entre sesiones).
+
+NOTAS:
+  - Todo corre 100% local (127.0.0.1); no se envia nada a internet.
+  - No distribuyas este paquete: contiene tu ROM.
